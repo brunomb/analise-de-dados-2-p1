@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Problema 01</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Problema 01</h1>
+
+<h2>Questao 01</h2>
+
+<p><strong>A.Trace um esboco do caminho que ele percorreu analisando os dados para responder essas perguntas.</strong></p>
+
+<p><em>O video é bem interessante e em todas as analises que  Hans Rosling faz ele mostra que temos sempre que obsevar as mudanças sociais antes das mudanças economicas para entender como os dados estão mudando. Durante o video para mostrar que não temos mais um mundo tão separada quanto antigamente primeiramente ele analisa dados sobre fertilidade e com dados bons e com taxas de erros pequenas e analisou junto a expecativa de vida e chegou a conclusao que antes paises com indiutrias tinha familias pequenas e vidas longa e os em desenvolvimento tinha familias grandes e vidas curtas mas fazendo uma analise dos dados da decada de 60 até agora os anos 200 os dados se agruparam bastante e agora temos vidas longas e familias pequenas e um mundo totalmente novo como o propio descreve. Em seguida Hans faz uma comparacao entre os dados dos EUA e do Vietnam. Em 1964 os EUA tinham familias pequenas e de vida longa e o Vietnam com familias grandes e vidas curtas. Observou-se nos dados que mesmo durante a guerra houve melhora na expectativa de vida em ambos os paises, ele mostra a evolução dos dados com os anos e cita eventos como o planejamento familiar, a entrada na economia de mercado e desistencia do planejamento comunista, todos acontecidos no Vietnam e mostra que hoje o Vietnam tem a mesma expectativa de vida e o mesmo tamanho de familia dos EUA. Logo após Hans mostra uma pesquisa que mostra que existe uma forte relação entre a mortalidade infantil e o PIB mostrando a distribuição de renda das pessoas de todo o mundo e observa que não existe mais intervalo entre rico e pobre como antigamente mostrando que o conceito de paises em desenvolvimento é duvidoso. Em seguida Hans mostra aonde esta dividida a renda entre os paises e mostra varios casos de como a disribuição de renda é desigual internamente nos paises e em uma visão geral mostra que nos anos 70 a curva de diferença entre ricos e pobre era grande e hoje em dia não é mais. Por fim Hans fala sobre a importancia dos paises com os seus dados.</em></p>
+
+<p><strong>B. Anote os termos ou ideias que voce nao entende ainda</strong></p>
+
+<p><em>Entendi todos os termos e ideias usados no video</em></p>
+
+<h2>Questao 02</h2>
+
+<p><strong>Qual o panorama geral dos profissionais de TI no Brasil sem ainda se preocupar com seus salários, apenas com sua localização, função,expertise&hellip;?</strong></p>
+
+<pre><code class="r">summary(salarios.ti.regiao)
+</code></pre>
+
+<pre><code>##        X                     Cidade         UF     Salario.Bruto  
+##  Min.   :  1.00   Belo Horizonte:39   MG     :47   Min.   :  500  
+##  1st Qu.: 41.25   Rio de Janeiro:16   SP     :25   1st Qu.: 2281  
+##  Median : 81.50   Brasília      :12   RJ     :17   Median : 3583  
+##  Mean   : 81.50   Campinas      :11   DF     :16   Mean   : 4233  
+##  3rd Qu.:121.75   Recife        :10   PE     :10   3rd Qu.: 5332  
+##  Max.   :162.00   São Paulo     : 9   BA     : 9   Max.   :42120  
+##                   (Other)       :65   (Other):38                  
+##  Horas.Diarias   Tempo.de.Empresa Experiencia.Profissional
+##  Min.   :4.000   Min.   : 0.000   Min.   : 0.00           
+##  1st Qu.:8.000   1st Qu.: 0.600   1st Qu.: 3.00           
+##  Median :8.000   Median : 1.080   Median : 5.00           
+##  Mean   :7.886   Mean   : 2.076   Mean   : 5.53           
+##  3rd Qu.:8.000   3rd Qu.: 2.958   3rd Qu.: 7.00           
+##  Max.   :9.000   Max.   :12.000   Max.   :32.00           
+##                                                           
+##    Iniciativa.Privada.ou.Concursado
+##                    :  8            
+##  Concursado        : 36            
+##  Iniciativa Privada:118            
+##                                    
+##                                    
+##                                    
+##                                    
+##                                 Cargo    
+##  Desenvolvimento Java              :  7  
+##  Analista de Sistemas              :  6  
+##  Desenvolvedor Java                :  6  
+##                                    :  3  
+##  Analista de Sistemas/Desenvolvedor:  3  
+##  Desenvolvedor                     :  3  
+##  (Other)                           :134  
+##                                Formacao  Pos.Graduacao.ou.Certificacao
+##                                    :29   Mode :logical                
+##  Ciência da Computação             :23   FALSE:82                     
+##  Bacharel em Ciência da Computação :19   TRUE :80                     
+##  Graduação em Ciência da Computação: 6   NA&#39;s :0                      
+##  Sistemas de Informação            : 5                                
+##  Engenharia de Computação          : 4                                
+##  (Other)                           :76                                
+##           Regiao  
+##  Centro-oeste:19  
+##  Nordeste    :34  
+##  Norte       : 2  
+##  Sudeste     :92  
+##  Sul         :13  
+##  NA&#39;s        : 2  
+## 
+</code></pre>
+
+<p><em>Primeiramente observandos os dados vemos que temos dados metricos e não metricos, sendo eles:</em></p>
+
+<p><strong><em>Não Metricos:</em></strong></p>
+
+<ul>
+<li>Cidade</li>
+<li>UF</li>
+<li>Região</li>
+<li>Iniciativa Privada ou Concursado</li>
+<li>Pos graduação ou Certificação</li>
+<li>Cargo e Formação</li>
+</ul>
+
+<p><em>Variaveis nominais que vão nos permitir achar proporções/modas, como por exemplo: Qual a região com mais profissionais? ou Qual a proporção de profissionais concursados no Brasil?</em></p>
+
+<p><strong><em>Metricos:</em></strong></p>
+
+<ul>
+<li>Horas Diarias</li>
+<li>Tempo de Espera</li>
+<li>Salario Bruto</li>
+<li>Experiencia Profissional</li>
+</ul>
+
+<p><em>Como são metricas será possivel calcular dirvesos fatores, como por exemplo: media e mediana, quartis e boxplots. E assim responder perguntas como: Qual região tem maiores salarios? Qual região/cidade trabalha por mais tempo?</em></p>
+
+<p><em>A partir desses dados para poder traçar o panorama analisando os dados por região respondendo as seguintes questões:</em></p>
+
+<p><em>OBS: Como os dados de Cargos são muito distintos não é interessante avaliar os mesmos</em></p>
+
+<p><li>Como estão divididos os profissionais em TI pelas as regiões do Brasil</li></p>
+
+<pre><code class="r">table(salarios.ti.regiao$Regiao)
+</code></pre>
+
+<pre><code>## 
+## Centro-oeste     Nordeste        Norte      Sudeste          Sul 
+##           19           34            2           92           13
+</code></pre>
+
+<p><li>Como estão divididos os profissionais em TI em relação iniciativa de trabalho?</li></p>
+
+<pre><code class="r">table(salarios.ti.regiao$Iniciativa.Privada.ou.Concursado)
+</code></pre>
+
+<pre><code>## 
+##                            Concursado Iniciativa Privada 
+##                  8                 36                118
+</code></pre>
+
+<p><li>Qual a relação entre a região de trabalho e a iniciativa?</li></p>
+
+<pre><code class="r">table(salarios.ti.regiao$Iniciativa.Privada.ou.Concursado,salarios.ti.regiao$Regiao)
+</code></pre>
+
+<pre><code>##                     
+##                      Centro-oeste Nordeste Norte Sudeste Sul
+##                                 2        2     0       4   0
+##   Concursado                   11        9     2       8   6
+##   Iniciativa Privada            6       23     0      80   7
+</code></pre>
+
+<p><li>Como estão divididos os profissionais em TI em relaçãoa graduação ou não dos mesmos?</li></p>
+
+<pre><code class="r">table(salarios.ti.regiao$Pos.Graduacao.ou.Certificacao)
+</code></pre>
+
+<pre><code>## 
+## FALSE  TRUE 
+##    82    80
+</code></pre>
+
+<p><li>Qual a relação entre o tipo de graduação e a iniciativa de trabalho?</li></p>
+
+<pre><code class="r">table(salarios.ti.regiao$Iniciativa.Privada.ou.Concursado,salarios.ti.regiao$Pos.Graduacao.ou.Certificacao)
+</code></pre>
+
+<pre><code>##                     
+##                      FALSE TRUE
+##                          3    5
+##   Concursado            16   20
+##   Iniciativa Privada    63   55
+</code></pre>
+
+<p><li>Qual proporção de graduados por região?</li></p>
+
+<pre><code class="r">sort(tapply(salarios.ti.regiao$Pos.Graduacao.ou.Certificacao, salarios.ti.regiao$Regiao, mean), decreasing = TRUE)
+</code></pre>
+
+<pre><code>##          Sul Centro-oeste     Nordeste        Norte      Sudeste 
+##    0.6923077    0.6842105    0.5000000    0.5000000    0.4239130
+</code></pre>
+
+<p><li>Media de horas de trabalho por região</li></p>
+
+<pre><code class="r">sort(tapply(salarios.ti.regiao$Horas.Diarias, salarios.ti.regiao$Regiao, median), decreasing = TRUE)
+</code></pre>
+
+<pre><code>## Centro-oeste     Nordeste      Sudeste          Sul        Norte 
+##          8.0          8.0          8.0          8.0          7.5
+</code></pre>
+
+<p><li>Media de tempo de experiencia por região</li></p>
+
+<pre><code class="r">sort(tapply(salarios.ti.regiao$Experiencia.Profissional, salarios.ti.regiao$Regiao, median), decreasing = TRUE)
+</code></pre>
+
+<pre><code>##        Norte Centro-oeste          Sul     Nordeste      Sudeste 
+##           11            7            6            5            4
+</code></pre>
+
+<h2>Questao 03</h2>
+
+<p><strong>Os salários estão bem distribuídos no intervalo que vai do menor salário para o maior salário? Ou será que os salários são muito concentrados em um intervalo pequeno de valores? Será que existem salários atípicos (outliers)?</strong></p>
+
+<pre><code class="r">summary(salarios.ti.regiao$Salario.Bruto)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     500    2281    3583    4233    5332   42120
+</code></pre>
+
+<pre><code class="r">boxplot(salarios.ti.regiao$Salario.Bruto, col = &quot;3&quot;, main=&quot;Salario dos profissionais de TI&quot;, horizontal = T)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-12"/> </p>
+
+<p><em>Fazendo uma primeira analise ao summary e ao boxplot notamos que existem valores atípicos, o que já mostra que os dados não estão bem distribuidos, mas para responder a questão sobre a concentração dos valores no intervalos esses valores foram retirados para melhor vizualisação.</em></p>
+
+<pre><code class="r">boxplot(salarios.ti.regiao$Salario.Bruto, col = &quot;3&quot;, main=&quot;Boxplot salario dos profissionais de TI&quot;, horizontal = T, outline=F)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAGwCAMAAAC3laJpAAAAflBMVEX9/v0AAAAAADkAAGUAOTkAOY8AZmUAZo8AZrUAzQA5AAA5ADk5AGU5OWU5OY85j485j9plAABlADllAGVlOQBlOY9lZjlltbVltf2POQCPOTmPZgCP27WP29qP2/21ZgC1tWW1/v3ajzna/rXa/v39tWX924/9/rX9/tr9/v1MOPR/AAAAKnRSTlP//////////////////////////////////////////////////////wAyqPBcAAAACXBIWXMAAAsSAAALEgHS3X78AAAKoUlEQVR4nO3c2UIbyQGG0ZEdJw5JJjgrZDGBAEbv/4LpRUvLloHUlKnSr3MupjVqdXWN+qPU0sX8tIYgP7WeANQkaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIlydkF/+bQafbh/9jXvbxf/enP1mlcdfWZ+9tmTHfF4sXr3ryNjHR//2b3fnPzpevrvX/362bFO17kG/WzRh2ncrF4b9PdG+3+D/t4ZCwg63Zzh/M+74cJejgvi+9vhOl89Xb//z2o17FjunQL4OB06LJzj3vXD8My7z/OrNo+frt/9bbuqbkadjEf/fWpq++x2kGnn5nzz0Z+XZ/zw33Gs7Ys324NZ744+mM9i+K9Ovv8bebwYnnvtn+OpOdugh2t6My1VH6cV8WHYbhavD/fTazZ790HPa/u4d/+q7eNFhLtR1+v9iLtntwcc7J2Pvl+ecRrr2Bl3I22O/rg+Np9jJ9/+kQk6yuaWY1jRHi+mZW36x68upoVyuOjD/qvxYu/3bm8Apg52o4zxzEmM2+HQj/Oj/XHree0flscP97tnl4PszjcffXjGeaz5xdvtwfjT0Q+r/Z7lEV+dfHhyWNBvdzsEnWN7D/3+9mFaRu/GXB+mT+T5mt+tLseLvd+7DXo6cqpgfLQNen483DR8nrNajDqO+3H+NNg9ux9kcb756MMz7tbb6VZjtbvl2L1qOmi+Rd7PZzn84uTbv+GZoJNsLuTmLmOT3t32rvS5oKf709W4yM5/EPOKOD9+ddDbQca9Lwa9e/Fm+1XQU+LjAryfz3J4QZ+FfdD7j/jHi99cT9/snr3lmAz/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" alt="plot of chunk unnamed-chunk-13"/> </p>
+
+<p><em>Observano o grafico acima nota-se que os valores não estão bem distribuidos porque metade deles estão concentrados abaixo de 3583 (mediana) e o restante se concentra entre 3583 e 9500 (maior salario não levando em conta os outliers). Assim fica evidente a concentração de valores de salarios mais baixos. Isto também pode ser visto através do histograma:</em></p>
+
+<pre><code class="r">hist(salarios.ti.regiao$Salario.Bruto, col = &quot;3&quot;, main=&quot;Histograma salario dos profissionais de TI&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAGwCAMAAAC3laJpAAAAk1BMVEX9/v0AAAAAADkAAGUAOTkAOWUAOY8AZmUAZo8AZrUAzQA5AAA5ADk5AGU5OWU5OY85j485j9plAABlADllAGVlOQBlOTllZjlltbVltdpltf2POQCPOTmPZo+PtY+P27WP29qP2/21ZgC1tWW124+1/rW1/v3ajzna24/a/rXa/tra/v39tWX924/9/rX9/tr9/v1Mj2UxAAAAMXRSTlP///////////////////////////////////////////////////////////////8AH5pOIQAAAAlwSFlzAAALEgAACxIB0t1+/AAADmdJREFUeJzt3WtD4lYCh/FGp25Zxlp0Zi8wbge2NTuFQL7/p9ucWxIkkHAzJ3+e34tiA7mMPsbDUcJPOSDkp74PALgkgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoYUgoaUWwh6/Xz/lueb2f2b+yhYTC+8i8NL3NKH5XFbzsbJ3e8N22re/sF7d3a+mSXW3w5ua1huK+itxYvkmkHve9yxQV/wKAlaxLszdHHOS+7f7BdzlOdpcTPJ7Rf3/s/iK76Z3f0zuZuvisV383yV/FIsfyseVGTll1luI+Uyu2H/sduCO6uGreduD8m/bFNhadiIvfP+v/Z//P79Y+xRPvyoDrtcaV3ffrn21vHUNv9u59X3SDYulnX9dhyC2wt6/WxOSg9/uaAX9hQ1cuV8GpugXUL2QctVEpQrLt0m3cfVbXV/LcKwdcOfDov1w9L6Bst73dpL/5hqW0173D76+ibrx9O08/BNRtBD5L6yrsn7N/slNMwP82xsT2d382xcfE1TF9QorHb/tkrMCsnUPCQsM7flRvyysNzcui24Xfmtu1X8Hmr7rDZSrDQxBzp1a1drmqOsH3a43dq+XXuVVPds/UO3d14srI2+CHqAtoO2/2e+gCaVla03TaYrF6EdcszDSibokY/ULHXLyk3aD90yl4T7ODzWrW23blYp91AurTYSRvhpMnFrV2uGoMODq9va9u1KbohcHU9987WdW2HkRNBD1DCGTvy5b1/Q9jFl0G5pWGa36TcSlrkzovu4c9DlkeQd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" alt="plot of chunk unnamed-chunk-14"/> </p>
+
+<h2>Questao 04</h2>
+
+<p><strong>A distribuição que você encontrou é a que você esperava sem olhar os dados? Se não é, você tem alguma suspeita da razão para a diferença?</strong></p>
+
+<p><em>Quanto a distribuição em torno de valores mais baixos o resultado bate com o que eu esperava mas eu esperava que salarios tão altos não fossem tão atipicos; suspeito que isto aconteceu por conta do pouco volume de dados. Na minha opinião se tivessemos mais dados acho que a medina não mudaria muito mas teriamos mais salarios com grandes valores</em></p>
+
+<h2>Questao 05</h2>
+
+<p><strong>É interessante ver a média (mean) salarial para cada região. Como resultado, apresente uma tabela com o nome da região e a sua média salarial ordenada da região com a maior média salarial para a menor. Se você tivesse usado a mediana (median) em vez da média como métrica de interesse, o resultado seria o mesmo? Analise a situação e justifique. Aproveite e salve esta tabela em um arquivo do tipo csv</strong></p>
+
+<p><strong><em>Utilizando a media</em></strong></p>
+
+<pre><code class="r">sort(tapply(salarios.ti.regiao$Salario.Bruto, salarios.ti.regiao$Regiao, mean), decreasing=TRUE)
+</code></pre>
+
+<pre><code>## Centro-oeste     Nordeste      Sudeste          Sul        Norte 
+##     5620.474     4565.706     3962.227     3657.538     2552.500
+</code></pre>
+
+<p><strong><em>Utilizando a mediana</em></strong></p>
+
+<pre><code class="r">sort(tapply(salarios.ti.regiao$Salario.Bruto, salarios.ti.regiao$Regiao, median),
+decreasing=TRUE)
+</code></pre>
+
+<pre><code>## Centro-oeste      Sudeste          Sul     Nordeste        Norte 
+##      5000.00      3582.95      3500.00      2900.00      2552.50
+</code></pre>
+
+<p><strong>Nota-se a diferença entre os valores por causa dos outliers apresentados nos dados.</strong></p>
+
+<p><strong>Para salvar os arquvios em csv foram usados os comandos:</strong></p>
+
+<pre><code class="r">salarioPorRegiaoUsandoMedia &lt;- sort(tapply(salarios.ti.regiao$Salario.Bruto, salarios.ti.regiao$Regiao, mean), decreasing=TRUE)
+
+write.csv(salarioPorRegiaoUsandoMedia, &quot;~/UFCG/analise-de-dados-2/analise-de-dados-2-p1/salarioPorRegiaoUsandoMedia.csv&quot;)
+
+salarioPorRegiaoUsandoMediana &lt;- sort(tapply(salarios.ti.regiao$Salario.Bruto, salarios.ti.regiao$Regiao, median), decreasing=TRUE)
+
+write.csv(salarioPorRegiaoUsandoMediana, &quot;~/UFCG/analise-de-dados-2/analise-de-dados-2-p1/salarioPorRegiaoUsandoMediana.csv&quot;)
+</code></pre>
+
+<h2>Questao 06</h2>
+
+<p><strong>Se um profissional de TI deseja ter um salario melhor, qual a(s) dica(s) para ele?</strong></p>
+
+<p><em>Como visto na questão anterior, a região tem um melhor salario é a região Centro Oeste, sendo assim vamos separar os dados desta região e estudalos.</em></p>
+
+<pre><code class="r">salarios.centro.oeste &lt;- subset(salarios.ti.regiao, salarios.ti.regiao$Regiao == &quot;Centro-oeste&quot;)
+</code></pre>
+
+<p><em>Vamos agora comparar os salarios de profissionais graduados e profissionais não graduados</em></p>
+
+<pre><code class="r">sort(tapply(salarios.centro.oeste$Salario.Bruto, salarios.centro.oeste$Pos.Graduacao.ou.Certificacao, median), decreasing=TRUE)
+</code></pre>
+
+<pre><code>##  TRUE FALSE 
+##  5500  3995
+</code></pre>
+
+<p><em>Nota-se que profissionais gradudos recebem melhor, agora vamos comparar os salarios dos profissionais que trabalham na iniciativa privada e dos profissionais que trabalham como concursados (Como haviam erros nos dados não informados os mesmos foram ignorados)</em></p>
+
+<pre><code class="r">sort(tapply(salarios.centro.oeste$Salario.Bruto, salarios.centro.oeste$Iniciativa.Privada.ou.Concursado, median), decreasing=TRUE)
+</code></pre>
+
+<pre><code>##         Concursado Iniciativa Privada 
+##               4250               3200
+</code></pre>
+
+<p><em>Nota-se que profissionais concursados recebem melhor, Assim a minha dica para o profissional que deseja receber melhor seria que o mesmo seja graduado e concursado na região centro oeste.</em></p>
+
+</body>
+
+</html>
+
